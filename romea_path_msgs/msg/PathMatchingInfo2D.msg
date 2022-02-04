@@ -1,0 +1,5 @@
+std_msgs/Header header
+PathMatchedPoint2D[] matched_points
+uint32 tracked_matched_point_index
+float64 path_length
+romea_common_msgs/Twist2D twist

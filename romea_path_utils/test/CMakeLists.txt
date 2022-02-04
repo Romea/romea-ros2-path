@@ -1,0 +1,12 @@
+
+ament_add_gtest(${PROJECT_NAME}_test_path_frenet_pose2d_conversions test_path_frenet_pose2d_conversions.cpp )
+target_link_libraries(${PROJECT_NAME}_test_path_frenet_pose2d_conversions ${PROJECT_NAME})
+
+ament_add_gtest(${PROJECT_NAME}_test_path_posture2d_conversions test_path_posture2d_conversions.cpp )
+target_link_libraries(${PROJECT_NAME}_test_path_posture2d_conversions ${PROJECT_NAME})
+
+ament_add_gtest(${PROJECT_NAME}_test_path_matching_point2d_conversions test_path_matching_point2d_conversions.cpp )
+target_link_libraries(${PROJECT_NAME}_test_path_matching_point2d_conversions ${PROJECT_NAME})
+
+ament_add_gtest(${PROJECT_NAME}_test_path_matching_info_conversions test_path_matching_info_conversions.cpp )
+target_link_libraries(${PROJECT_NAME}_test_path_matching_info_conversions ${PROJECT_NAME})
