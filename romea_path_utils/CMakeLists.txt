@@ -30,11 +30,10 @@ find_package(romea_path_msgs REQUIRED)
 
 
 add_library(${PROJECT_NAME}
-   src/path_frenet_pose2d_conversions.cpp
-   src/path_matching_info_conversions.cpp
-   src/path_matching_point2d_conversions.cpp
-   src/path_posture2d_conversions.cpp
-)
+    src/path_frenet_pose2d_conversions.cpp
+    src/path_matching_info_conversions.cpp
+    src/path_matching_point2d_conversions.cpp
+    src/path_posture2d_conversions.cpp)
 
 ament_target_dependencies(${PROJECT_NAME}
     rclcpp
@@ -43,8 +42,7 @@ ament_target_dependencies(${PROJECT_NAME}
     std_msgs
     romea_common_msgs
     romea_common_utils
-    romea_path_msgs
-    )
+    romea_path_msgs)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
