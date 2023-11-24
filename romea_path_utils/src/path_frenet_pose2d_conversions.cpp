@@ -15,10 +15,12 @@
 
 namespace romea
 {
+namespace ros2
+{
 
 //-----------------------------------------------------------------------------
 void to_ros_msg(
-  const PathFrenetPose2D & romea_frenet_pose2d,
+  const core::PathFrenetPose2D & romea_frenet_pose2d,
   romea_path_msgs::msg::PathFrenetPose2D & ros_frenet_pose2d_msg)
 {
   ros_frenet_pose2d_msg.curvilinear_abscissa = romea_frenet_pose2d.curvilinearAbscissa;
@@ -33,7 +35,7 @@ void to_ros_msg(
 //-----------------------------------------------------------------------------
 void to_romea(
   const romea_path_msgs::msg::PathFrenetPose2D & frenet_pose_msg,
-  PathFrenetPose2D & romea_frenet_pose)
+  core::PathFrenetPose2D & romea_frenet_pose)
 {
   romea_frenet_pose.curvilinearAbscissa = frenet_pose_msg.curvilinear_abscissa;
   romea_frenet_pose.lateralDeviation = frenet_pose_msg.lateral_deviation;
@@ -42,11 +44,12 @@ void to_romea(
 }
 
 //-----------------------------------------------------------------------------
-PathFrenetPose2D to_romea(const romea_path_msgs::msg::PathFrenetPose2D & frenet_pose_msg)
+core::PathFrenetPose2D to_romea(const romea_path_msgs::msg::PathFrenetPose2D & frenet_pose_msg)
 {
-  PathFrenetPose2D romea_frenet_pose;
+  core::PathFrenetPose2D romea_frenet_pose;
   to_romea(frenet_pose_msg, romea_frenet_pose);
   return romea_frenet_pose;
 }
 
+}  // namespace ros2
 }  // namespace romea

@@ -21,13 +21,15 @@
 
 namespace romea
 {
+namespace ros2
+{
 
 //-----------------------------------------------------------------------------
 romea_path_msgs::msg::PathMatchingInfo2D to_ros_msg(
-  const Duration & duration,
-  const PathMatchedPoint2D & matched_point,
+  const core::Duration & duration,
+  const core::PathMatchedPoint2D & matched_point,
   const double & path_length,
-  const Twist2D & twist)
+  const core::Twist2D & twist)
 {
   return to_ros_msg(
     to_ros_time(duration),
@@ -39,9 +41,9 @@ romea_path_msgs::msg::PathMatchingInfo2D to_ros_msg(
 //-----------------------------------------------------------------------------
 romea_path_msgs::msg::PathMatchingInfo2D to_ros_msg(
   const rclcpp::Time & stamp,
-  const PathMatchedPoint2D & matched_point,
+  const core::PathMatchedPoint2D & matched_point,
   const double & path_length,
-  const Twist2D & twist)
+  const core::Twist2D & twist)
 {
   romea_path_msgs::msg::PathMatchingInfo2D msg;
   msg.header.frame_id = "path";
@@ -55,11 +57,11 @@ romea_path_msgs::msg::PathMatchingInfo2D to_ros_msg(
 
 //-----------------------------------------------------------------------------
 romea_path_msgs::msg::PathMatchingInfo2D to_ros_msg(
-  const Duration & duration,
-  const std::vector<PathMatchedPoint2D> & matched_points,
+  const core::Duration & duration,
+  const std::vector<core::PathMatchedPoint2D> & matched_points,
   const size_t & tracked_matched_point_index,
   const double & path_length,
-  const Twist2D & twist)
+  const core::Twist2D & twist)
 {
   return to_ros_msg(
     to_ros_time(duration),
@@ -72,10 +74,10 @@ romea_path_msgs::msg::PathMatchingInfo2D to_ros_msg(
 //-----------------------------------------------------------------------------
 romea_path_msgs::msg::PathMatchingInfo2D to_ros_msg(
   const rclcpp::Time & stamp,
-  const std::vector<PathMatchedPoint2D> & matched_points,
+  const std::vector<core::PathMatchedPoint2D> & matched_points,
   const size_t & tracked_matched_point_index,
   const double & path_length,
-  const Twist2D & twist)
+  const core::Twist2D & twist)
 {
   romea_path_msgs::msg::PathMatchingInfo2D msg;
   msg.header.frame_id = "path";
@@ -90,4 +92,5 @@ romea_path_msgs::msg::PathMatchingInfo2D to_ros_msg(
   return msg;
 }
 
+}  // namespace ros2
 }  // namespace romea

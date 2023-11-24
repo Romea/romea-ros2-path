@@ -27,8 +27,8 @@ TEST(TestMatchingPoint2DConvertion, fromRosMsgToRomea)
   ros_path_matching_point2d_msg.desired_speed = 3;
   ros_path_matching_point2d_msg.future_curvature = 4;
 
-  romea::PathMatchedPoint2D romea_path_matching_point = romea::to_romea(
-    ros_path_matching_point2d_msg);
+  romea::core::PathMatchedPoint2D romea_path_matching_point =
+    romea::ros2::to_romea(ros_path_matching_point2d_msg);
 
   EXPECT_EQ(
     romea_path_matching_point.sectionIndex,
@@ -47,14 +47,14 @@ TEST(TestMatchingPoint2DConvertion, fromRosMsgToRomea)
 //-----------------------------------------------------------------------------
 TEST(TestMatchingPoint2DConvertion, fromRomeaToRosMsg)
 {
-  romea::PathMatchedPoint2D romea_path_matching_point;
+  romea::core::PathMatchedPoint2D romea_path_matching_point;
   romea_path_matching_point.sectionIndex = 1;
   romea_path_matching_point.curveIndex = 2;
   romea_path_matching_point.desiredSpeed = 3;
   romea_path_matching_point.futureCurvature = 4;
 
   romea_path_msgs::msg::PathMatchedPoint2D ros_path_matching_point2d_msg;
-  romea::to_ros_msg(romea_path_matching_point, ros_path_matching_point2d_msg);
+  romea::ros2::to_ros_msg(romea_path_matching_point, ros_path_matching_point2d_msg);
 
   EXPECT_EQ(
     romea_path_matching_point.sectionIndex,

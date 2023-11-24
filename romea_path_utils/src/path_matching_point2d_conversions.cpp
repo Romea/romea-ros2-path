@@ -18,10 +18,12 @@
 namespace romea
 {
 
+namespace ros2
+{
 
 //-----------------------------------------------------------------------------
 void to_ros_msg(
-  const PathMatchedPoint2D & romea_matched_point2d,
+  const core::PathMatchedPoint2D & romea_matched_point2d,
   romea_path_msgs::msg::PathMatchedPoint2D & ros_path_matched_point2d_msg)
 {
   to_ros_msg(romea_matched_point2d.pathPosture, ros_path_matched_point2d_msg.posture);
@@ -36,7 +38,7 @@ void to_ros_msg(
 //-----------------------------------------------------------------------------
 void to_romea(
   const romea_path_msgs::msg::PathMatchedPoint2D & matched_point_msg,
-  PathMatchedPoint2D & romea_matched_point)
+  core::PathMatchedPoint2D & romea_matched_point)
 {
   to_romea(matched_point_msg.posture, romea_matched_point.pathPosture);
   to_romea(matched_point_msg.frenet_pose, romea_matched_point.frenetPose);
@@ -48,11 +50,25 @@ void to_romea(
 
 
 //-----------------------------------------------------------------------------
-PathMatchedPoint2D to_romea(const romea_path_msgs::msg::PathMatchedPoint2D & matched_point_msg)
+core::PathMatchedPoint2D to_romea(
+  const romea_path_msgs::msg::PathMatchedPoint2D & matched_point_msg)
 {
-  PathMatchedPoint2D romea_matched_point;
+  core::PathMatchedPoint2D romea_matched_point;
   to_romea(matched_point_msg, romea_matched_point);
   return romea_matched_point;
 }
 
+
+//-----------------------------------------------------------------------------
+std::vector<core::PathMatchedPoint2D> to_romea(
+  const std::vector<romea_path_msgs::msg::PathMatchedPoint2D> & matched_point_msgs)
+{
+  std::vector<core::PathMatchedPoint2D> romea_matched_points;
+  for (const auto & msg : matched_point_msgs) {
+    romea_matched_points.push_back(to_romea(msg));
+  }
+  return romea_matched_points;
+}
+
+}  // namespace ros2
 }  // namespace romea

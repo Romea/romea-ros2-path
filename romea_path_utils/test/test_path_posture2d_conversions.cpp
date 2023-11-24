@@ -27,7 +27,8 @@ TEST(TestPosture2dConvertion, fromRosMsgToRomea)
   ros_posture2d_msg.curvature = 4;
   ros_posture2d_msg.dot_curvature = 5;
 
-  romea::PathPosture2D romea_path_posture2d = romea::to_romea(ros_posture2d_msg);
+  romea::core::PathPosture2D romea_path_posture2d =
+    romea::ros2::to_romea(ros_posture2d_msg);
 
   EXPECT_DOUBLE_EQ(romea_path_posture2d.position.x(), ros_posture2d_msg.x);
   EXPECT_DOUBLE_EQ(romea_path_posture2d.position.y(), ros_posture2d_msg.y);
@@ -39,7 +40,7 @@ TEST(TestPosture2dConvertion, fromRosMsgToRomea)
 //-----------------------------------------------------------------------------
 TEST(TestPosture2dConvertion, fromRomeaToRosMsg)
 {
-  romea::PathPosture2D romea_path_posture2d;
+  romea::core::PathPosture2D romea_path_posture2d;
   romea_path_posture2d.position.x() = 1;
   romea_path_posture2d.position.y() = 2;
   romea_path_posture2d.course = 3;
@@ -47,7 +48,7 @@ TEST(TestPosture2dConvertion, fromRomeaToRosMsg)
   romea_path_posture2d.dotCurvature = 5;
 
   romea_path_msgs::msg::PathPosture2D ros_posture2d_msg;
-  romea::to_ros_msg(romea_path_posture2d, ros_posture2d_msg);
+  romea::ros2::to_ros_msg(romea_path_posture2d, ros_posture2d_msg);
 
   EXPECT_DOUBLE_EQ(romea_path_posture2d.position.x(), ros_posture2d_msg.x);
   EXPECT_DOUBLE_EQ(romea_path_posture2d.position.y(), ros_posture2d_msg.y);

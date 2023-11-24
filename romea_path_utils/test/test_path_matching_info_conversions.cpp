@@ -27,8 +27,8 @@ TEST(TestMatchingInfoConvertion, toRosMsgWithOneMatchedPoint)
   double path_length = 1;
   rclcpp::Time stamp(2, 3);
 
-  romea_path_msgs::msg::PathMatchingInfo2D msg = romea::to_ros_msg(
-    stamp, romea::PathMatchedPoint2D(), path_length, romea::Twist2D());
+  romea_path_msgs::msg::PathMatchingInfo2D msg = romea::ros2::to_ros_msg(
+    stamp, romea::core::PathMatchedPoint2D(), path_length, romea::core::Twist2D());
 
   // EXPECT_DOUBLE_EQ(msg.header.stamp.sec, stamp.seconds());
   // EXPECT_DOUBLE_EQ(msg.header.stamp.nanosec, stamp.nanoseconds());
@@ -48,9 +48,9 @@ TEST(TestMatchingInfoConvertion, toRosMsgWithTwoMatchedPoints)
   size_t tracked_matched_point_index = 2;
   rclcpp::Time stamp(3, 4);
 
-  romea_path_msgs::msg::PathMatchingInfo2D msg = romea::to_ros_msg(
-    stamp, std::vector<romea::PathMatchedPoint2D>(2),
-    tracked_matched_point_index, path_length, romea::Twist2D());
+  romea_path_msgs::msg::PathMatchingInfo2D msg = romea::ros2::to_ros_msg(
+    stamp, std::vector<romea::core::PathMatchedPoint2D>(2),
+    tracked_matched_point_index, path_length, romea::core::Twist2D());
 
   // EXPECT_DOUBLE_EQ(msg.header.stamp.sec, stamp.seconds());
   // EXPECT_DOUBLE_EQ(msg.header.stamp.nanosec, stamp.nanoseconds());

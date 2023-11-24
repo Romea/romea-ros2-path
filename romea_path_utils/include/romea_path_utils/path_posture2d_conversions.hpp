@@ -20,17 +20,20 @@
 
 namespace romea
 {
+namespace ros2
+{
 
 void to_ros_msg(
-  const PathPosture2D & romea_path_posture2d,
+  const core::PathPosture2D & romea_path_posture2d,
   romea_path_msgs::msg::PathPosture2D & ros_path_posture2d_msg);
 
 void to_romea(
   const romea_path_msgs::msg::PathPosture2D & posture_msg,
-  PathPosture2D & romea_path_posture);
+  core::PathPosture2D & romea_path_posture);
 
-PathPosture2D to_romea(const romea_path_msgs::msg::PathPosture2D & posture_msg);
+core::PathPosture2D to_romea(const romea_path_msgs::msg::PathPosture2D & posture_msg);
 
+}  // namespace ros2
 }  // namespace romea
 
 #endif  // ROMEA_PATH_UTILS__PATH_POSTURE2D_CONVERSIONS_HPP_
