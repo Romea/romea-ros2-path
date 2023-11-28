@@ -59,6 +59,11 @@ romea_path_msgs::msg::PathMatchingInfo2D to_ros_msg(
   const double & path_length,
   const core::Twist2D & twist);
 
+
+std::vector<core::PathMatchedPoint2D> to_romea(
+  const romea_path_msgs::msg::PathMatchingInfo2D::_matched_points_type & matched_point_msgs);
+
+
 }  // namespace ros2
 }  // namespace romea
 

@@ -34,12 +34,9 @@ void to_romea(
   const romea_path_msgs::msg::PathMatchedPoint2D & matched_point_msg,
   core::PathMatchedPoint2D & romea_matched_point);
 
-
 core::PathMatchedPoint2D to_romea(
   const romea_path_msgs::msg::PathMatchedPoint2D & matched_point_msg);
 
-std::vector<core::PathMatchedPoint2D> to_romea(
-  const std::vector<romea_path_msgs::msg::PathMatchedPoint2D> & matched_point_msgs);
 
 }  // namespace ros2
 }  // namespace romea

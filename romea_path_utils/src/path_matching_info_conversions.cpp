@@ -92,5 +92,16 @@ romea_path_msgs::msg::PathMatchingInfo2D to_ros_msg(
   return msg;
 }
 
+//-----------------------------------------------------------------------------
+std::vector<core::PathMatchedPoint2D> to_romea(
+  const romea_path_msgs::msg::PathMatchingInfo2D::_matched_points_type & matched_point_msgs)
+{
+  std::vector<core::PathMatchedPoint2D> romea_matched_points;
+  for (const auto & msg : matched_point_msgs) {
+    romea_matched_points.push_back(to_romea(msg));
+  }
+  return romea_matched_points;
+}
+
 }  // namespace ros2
 }  // namespace romea
