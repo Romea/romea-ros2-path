@@ -31,6 +31,11 @@ void to_ros_msg(
   ros_path_matched_point2d_msg.future_curvature = romea_matched_point2d.futureCurvature;
   ros_path_matched_point2d_msg.desired_speed = romea_matched_point2d.desiredSpeed;
   ros_path_matched_point2d_msg.section_index = romea_matched_point2d.sectionIndex;
+  ros_path_matched_point2d_msg.section_minimal_curvilinear_abscissa =
+    romea_matched_point2d.sectionMinimalCurvilinearAbscissa;
+  ros_path_matched_point2d_msg.section_maximal_curvilinear_abscissa =
+    romea_matched_point2d.sectionMaximalCurvilinearAbscissa;
+  ros_path_matched_point2d_msg.section_index = romea_matched_point2d.sectionIndex;
   ros_path_matched_point2d_msg.curve_index = romea_matched_point2d.curveIndex;
 }
 
@@ -45,6 +50,10 @@ void to_romea(
   romea_matched_point.futureCurvature = matched_point_msg.future_curvature;
   romea_matched_point.desiredSpeed = matched_point_msg.desired_speed;
   romea_matched_point.sectionIndex = matched_point_msg.section_index;
+  romea_matched_point.sectionMinimalCurvilinearAbscissa =
+    matched_point_msg.section_minimal_curvilinear_abscissa;
+  romea_matched_point.sectionMaximalCurvilinearAbscissa =
+    matched_point_msg.section_maximal_curvilinear_abscissa;
   romea_matched_point.curveIndex = matched_point_msg.curve_index;
 }
 
