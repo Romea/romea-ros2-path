@@ -1,0 +1,4 @@
+string type
+string value
+float64 curvilinear_abcissa
+float64 curvilinear_distance

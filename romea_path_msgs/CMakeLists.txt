@@ -19,6 +19,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
     msg/PathFrenetPose2D.msg
     msg/PathMatchedPoint2D.msg
     msg/PathMatchingInfo2D.msg
+    msg/PathAnnotation.msg
+    msg/PathAnnotations.msg
     DEPENDENCIES std_msgs romea_common_msgs)
 
 ament_export_dependencies(rosidl_default_runtime)
