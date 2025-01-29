@@ -21,6 +21,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
     msg/PathMatchingInfo2D.msg
     msg/PathAnnotation.msg
     msg/PathAnnotations.msg
+    action/UturnDone.action
+    action/Lock.action
     DEPENDENCIES std_msgs romea_common_msgs)
 
 ament_export_dependencies(rosidl_default_runtime)
