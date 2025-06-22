@@ -12,18 +12,21 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 find_package(romea_common_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-    msg/PathPosture2D.msg
-    msg/PathFrenetPose2D.msg
-    msg/PathMatchedPoint2D.msg
-    msg/PathMatchingInfo2D.msg
-    msg/PathAnnotation.msg
-    msg/PathAnnotations.msg
-    action/UturnDone.action
-    action/Lock.action
-    DEPENDENCIES std_msgs romea_common_msgs)
+  msg/PathPosture2D.msg
+  msg/PathFrenetPose2D.msg
+  msg/PathMatchedPoint2D.msg
+  msg/PathMatchingInfo2D.msg
+  msg/PathAnnotation.msg
+  msg/PathAnnotations.msg
+  srv/PathDivergence.srv
+  action/UturnDone.action
+  action/Lock.action
+  DEPENDENCIES std_msgs romea_common_msgs nav_msgs
+)
 
 ament_export_dependencies(rosidl_default_runtime)
 ament_package()
